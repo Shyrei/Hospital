@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Context>
+	<Resource name="jndi/hospital" author="Container" type="javax.sql.DataSource"
+		maxActive="32" maxIdle="8" maxWait="10000" username="root" password="840103"
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://127.0.0.1:3306/hospital?useUnicode=yes&amp;characterEncoding=UTF-8" />
+</Context>
