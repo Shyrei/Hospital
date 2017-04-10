@@ -17,6 +17,7 @@ public class DepartmentDAO extends DAO {
 
 	private static DepartmentDAO instance;
 	private final String COLUMN_NAME_NAME = "name";
+	private final String COLUMN_NAME_ID = "id";
 	private final String COLUMN_NAME_NOC = "numberOfChambers";
 
 	private DepartmentDAO() {
@@ -46,6 +47,27 @@ public class DepartmentDAO extends DAO {
 			Department department = new Department();
 			department.setNumberOfChambers(Integer.parseInt(result.getString(COLUMN_NAME_NOC)));
 			department.setName(result.getString(COLUMN_NAME_NAME));
+			department.setDepId(Integer.parseInt(result.getString(COLUMN_NAME_ID)));
+			list.add(department);
+		}
+		poolInstance.freeConnection(connection);
+		return list;
+	}	
+	
+	public ArrayList<Department> showOneDepartment(int depId) throws SQLException {
+		Connection connection = poolInstance.getConnection();
+		PreparedStatement ps = null;
+		ArrayList<Department> list = new ArrayList<Department>();
+		String query = SqlManager.getProperty("sql.show.one.departments");
+		ps = poolInstance.getConnection().prepareStatement(query);
+		ps = connection.prepareStatement(query);
+		ps.setInt(1, depId);
+		ResultSet result = ps.executeQuery();
+		while (result.next()) {
+			Department department = new Department();
+			department.setNumberOfChambers(Integer.parseInt(result.getString(COLUMN_NAME_NOC)));
+			department.setName(result.getString(COLUMN_NAME_NAME));
+			System.out.println(department);
 			list.add(department);
 		}
 		poolInstance.freeConnection(connection);
@@ -63,11 +85,7 @@ public class DepartmentDAO extends DAO {
 		PreparedStatement ps = null;
 		ps = connection.prepareStatement(query);
 		ps.setString(1, department.getName());
-		System.out.println(ps);
-		System.out.println(department.getName());
 		ps.setInt(2, department.getNumberOfChambers());
-		System.out.println(ps);
-		System.out.println(department.getNumberOfChambers());
 		ps.executeUpdate();
 		poolInstance.freeConnection(connection);
 	}

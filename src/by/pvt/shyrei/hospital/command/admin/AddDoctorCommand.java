@@ -3,11 +3,9 @@ package by.pvt.shyrei.hospital.command.admin;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import by.pvt.shyrei.hospital.command.ActionCommand;
 import by.pvt.shyrei.hospital.connectpool.ConnectionPool;
 import by.pvt.shyrei.hospital.dao.DoctorDAO;
@@ -22,7 +20,7 @@ import by.pvt.shyrei.hospital.resources.MessageManager;
 public class AddDoctorCommand implements ActionCommand {
 
 	private static final String DOCTOR_NAME = "name";
-	private static final String DEPARTMENT_ID = "Departments_id";
+	private static final String DEPARTMENT_ID = "depId";
 	private static final String DOCTOR_SPECIALIZATION = "specialization";
 	private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
 	String errMessage = null;
@@ -32,13 +30,12 @@ public class AddDoctorCommand implements ActionCommand {
 	 */
 	@Override
 	public String execute(HttpServletRequest request) {
-		String page = null;
-
+		String page = null;		
 		try {
 			Doctor doctor = new Doctor();
-			doctor.setName(request.getParameter(DOCTOR_NAME));
-			doctor.setDepId(request.getParameter(DEPARTMENT_ID));
+			doctor.setName(request.getParameter(DOCTOR_NAME));			
 			doctor.setSpecialization(request.getParameter(DOCTOR_SPECIALIZATION));
+			doctor.setDepId(request.getParameter(DEPARTMENT_ID));
 
 			if ((errMessage = checkEmpty(doctor)) != null) {
 				request.setAttribute("errorAddDoctorPassMessage", checkEmpty(doctor));

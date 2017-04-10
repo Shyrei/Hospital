@@ -42,7 +42,7 @@ body {background: url(images/fon2.jpg);}
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
 					<form name="AddDoctorForm" method="POST" action="controller">
-						<input type="hidden" name="command" value="GO" />
+						<input type="hidden" name="command" value="GO_TO_SHOW_DOCTOR" />
 						<button type="submit" class="btn btn-primary">
 							<fmt:message key="button.add.doctor" />
 						</button>

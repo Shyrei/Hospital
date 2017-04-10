@@ -7,6 +7,7 @@ import by.pvt.shyrei.hospital.command.user.LoginUserCommand;
 import by.pvt.shyrei.hospital.command.user.LogoutUserCommand;
 import by.pvt.shyrei.hospital.command.user.RegisterUserCommand;
 import by.pvt.shyrei.hospital.command.user.ShowDepartmentCommand;
+import by.pvt.shyrei.hospital.command.user.ShowOneDepartmentCommand;
 import by.pvt.shyrei.hospital.command.utils.ChangeLocaleCommand;
 import by.pvt.shyrei.hospital.command.utils.GoToAddDoctorCommand;
 import by.pvt.shyrei.hospital.command.utils.GoToMenuCommand;
@@ -38,7 +39,7 @@ public enum CommandEnum {
 		}
 	},
 	
-	GO {
+	GO_TO_SHOW_DOCTOR {
 		{
 			this.command = new GoToAddDoctorCommand();
 		}
@@ -56,6 +57,11 @@ public enum CommandEnum {
 	SHOW_DEPARTMENTS {
 		{
 			this.command = new ShowDepartmentCommand();
+		}
+	},
+	SHOW_ONE_DEPARTMENTS {
+		{
+			this.command = new ShowOneDepartmentCommand();
 		}
 	},
 	SHOW_DOCTORS {
