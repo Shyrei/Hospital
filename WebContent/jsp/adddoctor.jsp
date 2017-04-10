@@ -50,7 +50,7 @@ body {
 						<label for="Departments_id" class="col-sm-3 control-label"><fmt:message
 								key="add.doctor.department" /></label>
 						<div class="col-sm-9">
-							<select class="form-control">
+							<select class="form-control" name="Departments_id">
 								<c:forEach items="${list}" var="dept">
 									<option value="${dept.depId}">${dept.name}</option>
 								</c:forEach>

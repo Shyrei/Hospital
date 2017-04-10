@@ -20,7 +20,7 @@ import by.pvt.shyrei.hospital.resources.MessageManager;
 public class AddDoctorCommand implements ActionCommand {
 
 	private static final String DOCTOR_NAME = "name";
-	private static final String DEPARTMENT_ID = "depId";
+	private static final String DEPARTMENT_ID = "Departments_id";
 	private static final String DOCTOR_SPECIALIZATION = "specialization";
 	private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
 	String errMessage = null;
@@ -33,7 +33,8 @@ public class AddDoctorCommand implements ActionCommand {
 		String page = null;		
 		try {
 			Doctor doctor = new Doctor();
-			doctor.setName(request.getParameter(DOCTOR_NAME));			
+			doctor.setName(request.getParameter(DOCTOR_NAME));
+			System.out.println(request.getParameter(DEPARTMENT_ID));
 			doctor.setSpecialization(request.getParameter(DOCTOR_SPECIALIZATION));
 			doctor.setDepId(request.getParameter(DEPARTMENT_ID));
 

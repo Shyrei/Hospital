@@ -66,8 +66,7 @@ public class DepartmentDAO extends DAO {
 		while (result.next()) {
 			Department department = new Department();
 			department.setNumberOfChambers(Integer.parseInt(result.getString(COLUMN_NAME_NOC)));
-			department.setName(result.getString(COLUMN_NAME_NAME));
-			System.out.println(department);
+			department.setName(result.getString(COLUMN_NAME_NAME));			
 			list.add(department);
 		}
 		poolInstance.freeConnection(connection);
