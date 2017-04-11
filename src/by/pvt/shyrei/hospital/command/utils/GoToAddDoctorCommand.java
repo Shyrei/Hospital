@@ -12,7 +12,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import by.pvt.shyrei.hospital.command.ActionCommand;
-import by.pvt.shyrei.hospital.command.ClientType;
 import by.pvt.shyrei.hospital.connectpool.ConnectionPool;
 import by.pvt.shyrei.hospital.dao.DepartmentDAO;
 import by.pvt.shyrei.hospital.entity.Department;

@@ -16,6 +16,7 @@ import by.pvt.shyrei.hospital.resources.MessageManager;
  * @author Shyrei Uladzimir Controller
  */
 
+@SuppressWarnings("serial")
 @WebServlet("/controller")
 public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,14 +35,13 @@ public class Controller extends HttpServlet {
 		ActionFactory client = new ActionFactory();
 		ActionCommand command = client.defineCommand(request);
 		page = command.execute(request, response);
-
 		if (page == null) {
 			page = ConfigurationManager.getProperty("path.page.index");
 			request.getSession().setAttribute("nullPage", MessageManager.getProperty("message.nullpage"));
 			response.sendRedirect(request.getContextPath() + page);
 		} else {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-			dispatcher.forward(request, response);	
+			dispatcher.forward(request, response);
 		}
 	}
 }

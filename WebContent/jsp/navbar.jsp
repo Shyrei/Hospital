@@ -36,16 +36,15 @@
 					</c:if>
 					<c:if test="${sessionScope.userType == 'USER'}">
 						<button type="submit" class="btn btn-default"><fmt:message key="nav.user" /></button>
-					</c:if>
-				<!--  	<c:if test="${sessionScope.userType == 'GUEST'}">
-						<button type="submit" class="btn btn-default">Guest menu</button>
-					</c:if>-->
+					</c:if>				
 				</form>
 
 				<form action="controller" method="POST"
 					class="navbar-form navbar-right">
 					<input type="hidden" name="command" value="logout">
+					<c:if test="${sessionScope.userType == 'ADMINISTRATOR' || sessionScope.userType == 'USER'}">
 					<button type="submit" class="btn btn-default"><fmt:message key="nav.logout" /></button>
+					</c:if>
 				</form>
 
 				<form action="controller" method="POST"

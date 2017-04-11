@@ -41,6 +41,7 @@ public class ShowDoctorCommand implements ActionCommand {
 			logger.log(Level.FATAL, "SQLException - can't show list of doctors : " + e.toString());	
 		}
 		return page;
+		
 	}
 
 }
