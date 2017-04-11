@@ -14,6 +14,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="collapse navbar-collapse"
@@ -49,6 +50,7 @@
 
 				<form action="controller" method="POST"
 					class="navbar-form navbar-right">
+					<input type="hidden" name="command" value="change_locale">
 					<c:if
 						test="${sessionScope.locale == 'locale_en_US' or empty sessionScope.locale}">
 						<button type="submit" name="lang" value="ru"

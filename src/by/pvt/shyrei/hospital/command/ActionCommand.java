@@ -1,5 +1,8 @@
 package by.pvt.shyrei.hospital.command;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
@@ -13,7 +16,9 @@ public interface ActionCommand {
 	 * Request
 	 * @return
 	 * Request 
+	 * @throws IOException 
+	 * @throws ServletException 
 	 */
 	String execute(HttpServletRequest request,
-            HttpServletResponse response);
+            HttpServletResponse response) throws ServletException, IOException;
 }

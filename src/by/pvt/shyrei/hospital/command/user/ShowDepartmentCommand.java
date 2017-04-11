@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,12 +26,11 @@ public class ShowDepartmentCommand implements ActionCommand {
 	 */
 	public String execute(HttpServletRequest request, HttpServletResponse responce) {
 		String page = null;
-		ArrayList<Department> list;
+		ArrayList<Department> departmentsList;
 		try {
-			list = DepartmentDAO.getInstance().showDepartment();
-			int listSize = list.size();
-			request.setAttribute("list", list);
-			request.setAttribute("listSize", listSize);
+			departmentsList = DepartmentDAO.getInstance().showDepartment();
+			HttpSession session = request.getSession(true);
+			session.setAttribute("departmentsList", departmentsList);
 			page = ConfigurationManager.getProperty("path.page.showdepartments");
 
 		} catch (SQLException e) {

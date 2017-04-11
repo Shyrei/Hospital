@@ -5,6 +5,6 @@
 <title>Index</title>
 </head>
 <body>
-	<jsp:forward page="/jsp/regist.jsp"/>
+	<jsp:forward page="regist.jsp"/>
 </body>
 </html>

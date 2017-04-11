@@ -75,7 +75,7 @@ body {background: url(images/fon2.jpg);}
 							<h4>
 								<font color="red">${errorLoginMessage}</font>
 							</h4>
-						</div>
+						</div>						
 					</c:if>
 					<c:if test="${not empty errorDBMessage}">
 						<div class="text-center">
@@ -122,13 +122,15 @@ body {background: url(images/fon2.jpg);}
 								<h4>
 									<font color="red">${errorLoginPassMessage}</font>
 								</h4>
+								<c:remove var="errorLoginPassMessage" scope="session" />
 							</div>
 						</c:if>
 						<c:if test="${not empty errorDBMessage}">
 							<div class="text-center">
 								<h4>
-									<font color="red">${errorDBMessage}</font>
+									<font color="red">${errorDBMessage}</font>									
 								</h4>
+								<c:remove var="errorDBMessage" scope="session" />
 							</div>
 						</c:if>
 					</div>

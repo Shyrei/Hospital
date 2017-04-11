@@ -35,11 +35,11 @@ body {
 						<td align="center"><fmt:message	key="show.department.chambers" /></td>
 					</tr>
 
-					<c:forEach items="${list}" varStatus="сounter">
+					<c:forEach items="${oneDepartmentList}" varStatus="сounter">
 						<tr>
 							<td align="center">${сounter.count}</td>
-							<td align="center">${list[сounter.count-1].name}</td>
-							<td align="center">${list[сounter.count-1].numberOfChambers}</td>
+							<td align="center">${oneDepartmentList[сounter.count-1].name}</td>
+							<td align="center">${oneDepartmentList[сounter.count-1].numberOfChambers}</td>
 						</tr>
 					</c:forEach>
 				</table>

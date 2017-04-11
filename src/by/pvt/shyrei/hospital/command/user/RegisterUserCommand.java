@@ -1,6 +1,9 @@
 package by.pvt.shyrei.hospital.command.user;
 
+import java.io.IOException;
 import java.sql.SQLException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -35,8 +38,8 @@ public class RegisterUserCommand implements ActionCommand {
 	/* (non-Javadoc)
 	 * @see by.pvt.shyrei.hospital.command.ActionCommand#execute(javax.servlet.http.HttpServletRequest)
 	 */
-	public String execute(HttpServletRequest request, HttpServletResponse responce) {
-		String page = null;
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String page = ConfigurationManager.getProperty("path.page.login");
 		User user = new User();
 		String login = request.getParameter(LOGIN);
 
@@ -47,14 +50,16 @@ public class RegisterUserCommand implements ActionCommand {
 
 		if ((errMessage = validate(user)) != null) {
 			request.setAttribute("errorFormDataMessage", validate(user));
-			return page = ConfigurationManager.getProperty("path.page.login");
+			request.getRequestDispatcher(page).forward(request, response);
+			return null;
 		}
 		UserDAO userDAO = UserDAO.getInstance();
 		try {
 			if (!userDAO.checkLogin(user.getLogin())) {
 				request.setAttribute("errorLoginMessage", MessageManager.getProperty("message.loginerror"));
 				request.getSession().setAttribute("userType", ClientType.GUEST);
-				return page = ConfigurationManager.getProperty("path.page.login");
+				request.getRequestDispatcher(page).forward(request, response);
+				return null;
 			} else
 				userDAO.register(user);
 			HttpSession session = request.getSession(true);
@@ -64,8 +69,10 @@ public class RegisterUserCommand implements ActionCommand {
 		} catch (SQLException e) {
 			logger.log(Level.FATAL, "SQLException - can't login user : " + e.toString());
 			request.setAttribute("errorDBMessage", MessageManager.getProperty("message.DBerror"));
-			return page = ConfigurationManager.getProperty("path.page.login");
+			request.getRequestDispatcher(page).forward(request, response);
+			return null;
 		}
+		
 		return page;
 	}
 

@@ -36,11 +36,8 @@ public class GoToAddDoctorCommand implements ActionCommand {
 
 		try {
 			departmentList = DepartmentDAO.getInstance().showDepartment();
-			int listSize = departmentList.size();
 			HttpSession session = request.getSession(true);
 			session.setAttribute("departmentList", departmentList);
-			session.setAttribute("listSize", listSize);
-			page = ConfigurationManager.getProperty("path.page.showdepartments");
 		} catch (SQLException e) {
 			logger.log(Level.FATAL, "SQLException - can't show list of departments : " + e.toString());
 		}
