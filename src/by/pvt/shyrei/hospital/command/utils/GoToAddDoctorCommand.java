@@ -18,29 +18,31 @@ import by.pvt.shyrei.hospital.entity.Department;
 import by.pvt.shyrei.hospital.resources.ConfigurationManager;
 
 /**
- * @author Shyrei Uladzimir
- * This class return add doctor page
+ * @author Shyrei Uladzimir This class return add doctor page
  */
 public class GoToAddDoctorCommand implements ActionCommand {
 	private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
 
-	/* (non-Javadoc)
-	 * @see by.pvt.shyrei.hospital.command.ActionCommand#execute(javax.servlet.http.HttpServletRequest)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * by.pvt.shyrei.hospital.command.ActionCommand#execute(javax.servlet.http.
+	 * HttpServletRequest)
 	 */
 	public String execute(HttpServletRequest request) {
 		String page;
-		ArrayList<Department> list;
+		ArrayList<Department> departmentList;
+
 		try {
-			list = DepartmentDAO.getInstance().showDepartment();
-			int listSize = list.size();
+			departmentList = DepartmentDAO.getInstance().showDepartment();
+			int listSize = departmentList.size();
 			HttpSession session = request.getSession(true);
-			session.setAttribute("list", list);
+			session.setAttribute("departmentList", departmentList);
 			session.setAttribute("listSize", listSize);
 			page = ConfigurationManager.getProperty("path.page.showdepartments");
-			System.out.println(list);
-
 		} catch (SQLException e) {
-			logger.log(Level.FATAL, "SQLException - can't show list of departments : " + e.toString());	
+			logger.log(Level.FATAL, "SQLException - can't show list of departments : " + e.toString());
 		}
 		page = ConfigurationManager.getProperty("path.page.adddoctor");
 		return page;

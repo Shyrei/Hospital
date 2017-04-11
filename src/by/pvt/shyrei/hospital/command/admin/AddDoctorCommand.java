@@ -33,8 +33,7 @@ public class AddDoctorCommand implements ActionCommand {
 		String page = null;		
 		try {
 			Doctor doctor = new Doctor();
-			doctor.setName(request.getParameter(DOCTOR_NAME));
-			System.out.println(request.getParameter(DEPARTMENT_ID));
+			doctor.setName(request.getParameter(DOCTOR_NAME));			
 			doctor.setSpecialization(request.getParameter(DOCTOR_SPECIALIZATION));
 			doctor.setDepId(request.getParameter(DEPARTMENT_ID));
 

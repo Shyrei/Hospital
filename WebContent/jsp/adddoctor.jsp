@@ -38,7 +38,7 @@ body {
 					</div>
 					<div class="form-group">
 						<label for="specialization" class="col-sm-3 control-label"><fmt:message
-								key="add.doctor.specialization" /></label>
+								key="add.doctor.specialization" /></label>						
 						<div class="col-sm-9">
 							<input name="specialization" id="specialization" type="text"
 								class="form-control"
@@ -51,23 +51,12 @@ body {
 								key="add.doctor.department" /></label>
 						<div class="col-sm-9">
 							<select class="form-control" name="Departments_id">
-								<c:forEach items="${list}" var="dept">
+								<c:forEach items="${departmentList}" var="dept">
 									<option value="${dept.depId}">${dept.name}</option>
 								</c:forEach>
 							</select>
 						</div>
-					</div>
-					
-
-					<!--<div class="form-group">
-						<label for="Departments_id" class="col-sm-3 control-label"><fmt:message
-								key="add.doctor.department" /></label>
-						<div class="col-sm-9">
-							<input name="Departments_id" id="Departments_id" type="text"
-								class="form-control"
-								placeholder="<fmt:message key="add.doctor.department.placeholder" />">
-						</div>
-					</div>-->
+					</div>	
 					<div class="text-right">
 						<input type="hidden" name="command" value="add_doctor">
 						<button type="submit" class="btn btn-primary">
