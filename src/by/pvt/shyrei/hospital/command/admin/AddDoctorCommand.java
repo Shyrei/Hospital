@@ -3,6 +3,8 @@ package by.pvt.shyrei.hospital.command.admin;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,7 +31,7 @@ public class AddDoctorCommand implements ActionCommand {
 	 * @see by.pvt.shyrei.hospital.command.ActionCommand#execute(javax.servlet.http.HttpServletRequest)
 	 */
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request, HttpServletResponse responce) {
 		String page = null;		
 		try {
 			Doctor doctor = new Doctor();

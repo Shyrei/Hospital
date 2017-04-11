@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.Level;
@@ -30,7 +31,7 @@ public class GoToAddDoctorCommand implements ActionCommand {
 	 * by.pvt.shyrei.hospital.command.ActionCommand#execute(javax.servlet.http.
 	 * HttpServletRequest)
 	 */
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request, HttpServletResponse responce) {
 		String page;
 		ArrayList<Department> departmentList;
 

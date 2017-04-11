@@ -1,6 +1,7 @@
 package by.pvt.shyrei.hospital.command.utils;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import by.pvt.shyrei.hospital.command.ActionCommand;
 
@@ -14,8 +15,9 @@ public class ChangeLocaleCommand implements ActionCommand{
 	 * @see by.pvt.shyrei.hospital.command.ActionCommand#execute(javax.servlet.http.HttpServletRequest)
 	 */
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request, HttpServletResponse responce) {
 		String page = request.getHeader("referer");
+		System.out.println(page);
 		return page;
 	}
 

@@ -3,6 +3,7 @@ package by.pvt.shyrei.hospital.command.user;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -31,7 +32,7 @@ public class LoginUserCommand implements ActionCommand {
 	/* (non-Javadoc)
 	 * @see by.pvt.shyrei.hospital.command.ActionCommand#execute(javax.servlet.http.HttpServletRequest)
 	 */
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request, HttpServletResponse responce) {
 		String page = null;
 		String login = request.getParameter(LOGIN);
 		String password = request.getParameter(PASSWORD);

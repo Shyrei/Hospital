@@ -1,6 +1,7 @@
 package by.pvt.shyrei.hospital.command.utils;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -23,7 +24,7 @@ public class GoToMenuCommand implements ActionCommand {
 	 * @see by.pvt.shyrei.hospital.command.ActionCommand#execute(javax.servlet.http.HttpServletRequest)
 	 */
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request, HttpServletResponse responce) {
 		ClientType userType = (ClientType) request.getSession().getAttribute("userType");
 		String page = null;
 		try {

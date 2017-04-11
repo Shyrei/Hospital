@@ -1,6 +1,7 @@
 package by.pvt.shyrei.hospital.command;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 /**
  * @author Shyrei Uladzimir
  * ActionCommand Interface
@@ -13,5 +14,6 @@ public interface ActionCommand {
 	 * @return
 	 * Request 
 	 */
-	String execute(HttpServletRequest request);
+	String execute(HttpServletRequest request,
+            HttpServletResponse response);
 }
