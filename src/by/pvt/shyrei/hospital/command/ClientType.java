@@ -6,5 +6,5 @@ package by.pvt.shyrei.hospital.command;
  */
 
 public enum ClientType {
-GUEST, USER, ADMINISTRATOR
+GUEST, USER, ADMINISTRATOR, ONE
 }
