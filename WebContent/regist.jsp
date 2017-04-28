@@ -29,9 +29,8 @@ body {background: url(images/fon2.jpg);}
 				<form action="controller" method="POST" class="form-horizontal">
 					<input type="hidden" name="command" value="register">
 					<div class="form-group">
-						<label for="name"><fmt:message key="register.name" /></label> <input
-							name="name" id="nameForm" type="text" class="form-control"
-							placeholder="<fmt:message key="register.name.placeholder" />"
+						<label for="name"><fmt:message key="register.name" /></label> 
+						<input name="name" id="nameForm" type="text" class="form-control" placeholder="<fmt:message key="register.name.placeholder" />"
 							onKeyUp="check('name')" maxlength="15"> <b id="name"
 							style="color: red; font-size: 10px;"> <fmt:message
 								key="reg.info.name" /></b>
